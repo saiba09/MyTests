@@ -1,0 +1,149 @@
+<div class="tabContainer">
+	<div class="row">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div class="bootstrap-iso" id="startDate">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="form-group ">
+							  <label class="control-label col-sm-2 requiredField" for="date">Start Date<span class="asteriskField">*</span></label>
+							  <div class="col-sm-10">
+								   <div class="input-group">
+									<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+									<input class="form-control" id="date" name="startDate" placeholder="MM/DD/YYYY" type="text"/>
+								   </div>
+							  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div class="bootstrap-iso" id="endDate">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="form-group ">
+							  <label class="control-label col-sm-2 requiredField" for="date">End Date<span class="asteriskField">*</span></label>
+							  <div class="col-sm-10">
+								   <div class="input-group">
+									<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+									<input class="form-control" id="date" name="endDate" placeholder="MM/DD/YYYY" type="text"/>
+								   </div>
+							  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<button class="btn showButton" ng-click="displayReports()">Show</button>
+		</div>
+	</div>
+	<div>		
+		<div class="row reportTabDiv">
+			<div id="home_page">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<ul class="home_tabs">
+						<li ng-repeat='reportTab in reportTabList' class="all_tab col-xs-3 col-xs-3 col-md-3 col-sm-3" ng-click="selectReportTab(reportTab)" ng-class="{active: reportTab==selectedReportTab}">{{reportTab}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div ng-show="selectedReportTab=='Table View'" class="reportTabDiv">
+			<table class="table table-fixed">
+				<thead class="tableHeading">
+				  <tr>
+					<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Username</th>
+					<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Email</th>
+					<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Date</th>
+					<th class="col-xs-4 col-sm-4 col-md-4 col-lg-4 centerText">Query</th>
+					<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Email Support Provided</th>
+				  </tr>
+				</thead>
+				<tbody class="subscriberTable">
+					<tr>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Abhilash Mohanty</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Doe@email.com</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">12 Jun 2017</td>
+						<td class="col-xs-4 col-sm-4 col-md-4 col-lg-4 centerText">Domestic Partner Benifits</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2 centerText">Yes</td>
+					</tr>
+					<tr>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Abhilash Mohanty</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Doe@email.com</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">12 Jun 2017</td>
+						<td class="col-xs-4 col-sm-4 col-md-4 col-lg-4 centerText">Domestic Partner Benifits</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2 centerText">Yes</td>
+					</tr>
+					<tr>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Abhilash Mohanty</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Doe@email.com</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">12 Jun 2017</td>
+						<td class="col-xs-4 col-sm-4 col-md-4 col-lg-4 centerText">Domestic Partner Benifits</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2 centerText">Yes</td>
+					</tr>
+					<tr>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Abhilash Mohanty</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Doe@email.com</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">12 Jun 2017</td>
+						<td class="col-xs-4 col-sm-4 col-md-4 col-lg-4 centerText">Domestic Partner Benifits</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2 centerText">Yes</td>
+					</tr>
+					<tr>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Abhilash Mohanty</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Doe@email.com</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">12 Jun 2017</td>
+						<td class="col-xs-4 col-sm-4 col-md-4 col-lg-4 centerText">Domestic Partner Benifits</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2 centerText">Yes</td>
+					</tr>
+					<tr>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Abhilash Mohanty</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Doe@email.com</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">12 Jun 2017</td>
+						<td class="col-xs-4 col-sm-4 col-md-4 col-lg-4 centerText">Domestic Partner Benifits</td>
+						<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2 centerText">Yes</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div ng-show="selectedReportTab=='Chart View'" class="reportTabDiv">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 reportTabDiv">
+				<center>
+					<div id="chart" style="width:250px;height:250px"></div>
+				</center>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 reportTabDiv">
+				<center>
+					<div id="chart1" style="width:250px;height:250px"></div>
+				</center>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+$(document).ready(function(){
+		var startDate=$('input[name="startDate"]');
+		var container=$('#startDate').length>0 ? $('#startDate').parent() : "div#startDate";
+		
+		startDate.datepicker({
+			format: 'mm/dd/yyyy',
+			container: container,
+			todayHighlight: true,
+			autoclose: true,
+		})
+		
+		
+		var endDate=$('input[name="endDate"]');
+		var container=$('#endDate').length>0 ? $('#endDate').parent() : "div#endDate";		
+		endDate.datepicker({
+			format: 'mm/dd/yyyy',
+			container: container,
+			todayHighlight: true,
+			autoclose: true,
+		})
+		
+	})
+</script>

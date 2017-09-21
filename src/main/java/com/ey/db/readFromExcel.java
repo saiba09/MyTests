@@ -224,9 +224,11 @@ public class readFromExcel {
 		LinkedList<LawDescription> list = new LinkedList<LawDescription>();
 		try {
 			String escapeSequence = "\\\\";
-			String path = readFromExcel.class.getResource("/formatedSampleData.xlsx").getPath();
+		//	String path = readFromExcel.class.getResource("/formatedSampleData.xlsx").getPath();
 			// System.out.println(path);
-			FileInputStream excelFile = new FileInputStream(new File(path));
+			String path = readFromExcel.class.getResource("/sample_data.xlsx").getPath();
+		
+	FileInputStream excelFile = new FileInputStream(new File(path));
 			Workbook workbook = new XSSFWorkbook(excelFile);
 			Sheet datatypeSheet = workbook.getSheetAt(0);
 			Iterator<Row> iterator = datatypeSheet.iterator();
