@@ -1,0 +1,12 @@
+<div class="container">
+<div class="row">
+	<div id="home_page">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<ul class="home_tabs">
+				<li ng-repeat='tab in tabList' class="all_tab col-xs-3 col-xs-3 col-md-3 col-sm-3" ng-click="selectTab($index,tab)" ng-class="{active: tab==selectedTab}">{{tab.title}}</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+<div ui-view></div>

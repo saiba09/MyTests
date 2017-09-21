@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Api.ai Text Request Example</title>
+<style>
+	textarea {
+	    width: 100%;
+	    height: 150px;
+	    display: block;
+	}
+    form span { width: 400px;}
+</style>
+</head>
+<body>
+	<h2>Api.ai Text Request  demo</h2>
+	<form id="webhookForm" onsubmit="return false;">
+	    <div>
+	       <span>Query:</span>
+	       <input type="text" name="query" value="hello">
+	       <button name="button" onclick="sendRequest(this.form)">Send Request</button>
+       </div>
+	    <div><textarea name="response" readonly="readonly"></textarea></div>
+	</form>
+	<script>
+		function sendRequest(form) {
+			var query = form.elements['query'].value;
+			console.log(query);
+			console.log("encodeURIComponent(query)");
+			console.log(encodeURIComponent(query));
+			if (query == null || query == "") {
+				return;
+			}
+			
+			form.elements['button'].disabled = true;
+            form.elements['response'].value += "\n> " + query;
+            form.elements['response'].scrollTop = form.elements['response'].scrollHeight 
+			var xhr = new XMLHttpRequest();
+		 	xhr.open("POST", "ai", true);
+			console.log("Post req ")
+			xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			var formData = "query=" + encodeURIComponent(query)+ ",sessionKey=1234" ;
+			xhr.send(formData);
+			xhr.onloadend = function(e) {
+				form.elements['button'].disabled = false;
+				console.log(e.target.responseText);
+				form.elements['response'].value += "\n" + e.target.responseText;
+				form.elements['response'].scrollTop = form.elements['response'].scrollHeight
+			}; 
+		/* 	 var xhttp = new XMLHttpRequest();
+			  xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+			    //  document.getElementById("demo").innerHTML = this.responseText;
+			    	form.elements['button'].disabled = false;
+					consloe.log(e.target.responseText);
+					form.elements['response'].value += "\n" + e.target.responseText;
+					form.elements['response'].scrollTop = form.elements['response'].scrollHeight
+			    }
+			  };
+			  xhttp.open("POST", "ai", true);
+			  xhttp.send(); */
+			return false;
+		}
+	</script>
+</body>
+</html>

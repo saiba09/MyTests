@@ -1,0 +1,263 @@
+/* Fonts */
+@font-face
+{
+	font-family: "Calibri-regular";
+	src: url('../fonts/Calibri/Calibri.ttf');
+}
+@font-face
+{
+	font-family: "Calibri-thick";
+	src: url('../fonts/Calibri/Thick_Calibri.otf');
+}
+@font-face
+{
+	font-family: "Calibri-light";
+	src: url('../fonts/Calibri/calibril.ttf');
+}
+.mainContainer{
+	margin-top:-20px;
+}
+
+/*global styles*/
+.rightFloat{
+	float : right;
+}
+
+/*Pop Up Styles*/
+.modal-footer{
+	border-top : none;
+	padding-top:0px;
+}
+
+.0BodyPadding{
+	padding-bottom:0px;
+}
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+	border-radius : 0px;
+	background: #fff;
+	padding : 0px;
+}
+
+.popUpHeader{
+	font-family : "Calibri-light";
+	font-weight : bold;
+	background-color:#fae615;
+	font-size: 18px;
+}
+
+.questionHeader{
+	font-family : "Calibri-light";
+	font-weight : bold;
+	font-size: 18px;
+	margin-bottom : 10px;
+	padding : 5px;
+	background-color:#fae615;
+}
+
+.questionDiv{
+	background-color : #f2f2f2;
+	padding : 10px 15px;
+	margin-bottom : 15px;
+	font-family : "Calibri-light";
+	font-size: 15px;
+	color : #676767;
+}
+
+.modal-header {
+	padding : 10px 10px;
+}
+
+.popUpButton, .popUpButton:hover{
+	border-radius : 0px;
+}
+
+.saveButton{
+	background-color: #808080;
+	color : #fff;
+}
+
+.cancelButton{
+	background-color: #fff;
+	border : 0.5px solid #ccc;
+}
+
+.form-control {
+	border-radius : 0px;
+}
+
+th[colspan="2"] , .centerText {
+    text-align: center;
+}
+
+.roleCheckbox
+{
+	width:25px;
+	height:25px;
+	background-color:#fff;
+}
+ /*pop up styles over*/
+ 
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+ul{margin: 0; padding: 0;}
+ul li{list-style: none;}
+
+/* header */
+.navbar-default { background: #fff; border : none; box-shadow: none; -webkit-box-shadow: none; }
+.navbar-nav{margin-top: 4%; margin-right : 3%;}
+.navbar-brand{height: auto; padding-top: 0px;}
+.navbar-brand>img { display: block;}
+
+/* Footer */
+.panel-footer { position:fixed; left:0px; bottom:0px; height:40px; width:100%; background:#dadada;}
+.panel-footer ul{ margin: 0; float : right}
+.panel-footer ul li{display: inline-block; margin-right: 10px; padding-right:15px; text-align: center; border-right : 1px solid #676767; font-family: "Calibri-light";color: #676767; text-decoration: none;}
+.panel-footer ul li:last-child { border : none;}
+.panel-footer ul li:hover{ color: #676767; text-decoration: none;cursor:pointer}
+
+/*home page*/
+@media (min-width: 1200px){
+.container {
+    width: 1370px;
+}
+}
+
+#home_page{display:inline-block;background:#fff;width:100%}
+.home_tabs{text-align:center;display:inline-block;width:100%;font-family:"Calibri-light";margin-bottom:20px}
+.home_tabs .all_tab{color:#676767;font-size:18px;font-weight:bold;width:25%;display:inline-block;height:30px;line-height:15px;border-bottom:3px solid #f2f2f2;font-family:"Calibri-light";padding:0px 10px 10px 10px}
+.home_tabs .all_tab.active{border-bottom:3px solid #fae615;}
+.home_tabs .all_tab:hover{cursor: pointer;}
+
+/*tabs*/
+
+.tabContainer{ margin-left:10%; margin-right:10%;}
+.tabContainerLeft{ margin-left:5%;}
+
+/*subscriber*/
+.subscriberTable{font-family:"Calibri-light"; font-size:14px;color:#676767;}
+.subscriberTable tr:nth-child(even) {
+    background: #f2f2f2;
+}
+.hyperlink{color: #337ab7;text-decoration: underline;}
+.hyperlink:hover{cursor: pointer;}
+.topicButton , .topicButton:hover, .topicButton:focus{ border-radius:0px; margin-bottom:15px; float:right; background-color:#808080; color:#fff; font-family:"Calibri-light"; font-weight:bold; padding:6px 18px; border:none;}
+.topicButton:active {box-shadow: none;} 
+
+ /*tableStyles*/
+.tableHeading {background-color:#fae615;font-family:"Calibri-light"; font-size:18px;font-weight:bold;color:#676767;}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	border:none;
+}
+.textBreak{
+	word-wrap: break-word;
+	max-width : 400px;
+	padding-right : 25px !important;
+}
+/*manage geo styles*/
+
+.header2{
+	font-family : "Calibri-light";
+	font-weight : bold;
+	font-size : 20px;
+	color : #676767;
+}
+
+.inputLabel
+{
+	font-family : "Calibri-light";
+	font-weight : bold;
+	font-size : 16px;
+	color : #676767;
+}
+
+/*reports page */
+.reportTabDiv
+{
+    margin-top: 20px;
+}
+
+.showButton , .showButton:hover, .showButton:focus{ border-radius:0px; margin-bottom:15px; background-color:#808080; color:#fff; font-family:"Calibri-light"; font-weight:bold; padding:6px 18px; border:none;}
+.showButton:active {box-shadow: none;} 
+
+
+input[type="checkbox"]:label {
+	font-family:"Calibri-light";
+	font-weight:bold;
+	font-size : 20px;
+}
+
+
+/* chatbot */
+/*.outerChatDiv{
+	width : 400px;
+	margin-top : 10px;
+	margin-bottom : 10px;
+	padding : 10px 10px;
+	font-family:"Calibri-light";
+	font-weight:bold;
+	font-size : 14px;
+	color : #676767;
+}
+
+.innerChatDiv{
+	max-width : 400px;
+}
+
+.innerChatDiv:nth-child(even) {
+    float : left;
+	background-color : #e6e6e6;
+}
+
+.innerChatDiv:nth-child(odd) {
+    float : right;
+	background-color : #fdf7b8;
+}*/
+
+.fixedInput
+{
+	position:fixed;
+	bottom:45px;
+	width: 50%;
+}
+
+.chatText{
+	margin-top : 10px;
+	margin-bottom : 10px;
+	padding : 10px 10px;
+	font-family:"Calibri-light";
+	font-size : 15px;
+	color : #676767;
+	width : 400px;
+}
+.chatText:nth-child(even) {
+    float : left;
+	background-color : #e6e6e6;
+}
+
+.chatText:nth-child(odd) {
+    float : right;
+	background-color : #fdf7b8;
+}
+
+.chatDiv {
+	margin-bottom : 20px;
+	max-height: 60vh;
+	overflow-y: auto;
+}
+
+.chatInput{
+	 position:fixed;margin-bottom:0px;
+}
+
+input[type="text"]:focus {
+    border: 1px solid #676767;
+	-webkit-box-shadow: inset 0 1px 1px rgba(103,103,103,.075), 0 0 8px rgba(103,103,103, 0.6);
+	box-shadow: inset 0 1px 1px rgba(103,103,103,.075), 0 0 8px rgba(103,103,103, 0.6);
+}
+
+.chatButton , .chatButton:hover, .chatButton:focus{ border-radius:0px; margin-bottom:15px; float:left; background-color:#808080; color:#fff; font-family:"Calibri-light"; font-weight:bold; padding:6px 18px; border:none; margin:5px 5px;}
+.chatButton:active {box-shadow: none;}

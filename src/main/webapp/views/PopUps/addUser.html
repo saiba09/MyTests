@@ -1,0 +1,28 @@
+<div class="modal-header popUpHeader">Add User</div>
+<div class="modal-body">
+	<div class="form-group">
+	<label for="username">User Name</label>
+	<input type="text" class="form-control" id="username">
+	</div>
+	
+	<div class="form-group">
+		<label for="email">Email</label>
+		<input type="text" class="form-control" id="email">
+	</div>
+	
+	<div class="form-group">
+		<div class="row">
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+				<label>Role</label>
+			</div>
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+				<input type="checkbox" name="vehicle" value="Bike" class="roleCheckbox">Admin
+				<input type="checkbox" name="vehicle" value="Bike" class="roleCheckbox">User
+			</div>		
+		</div>
+	</div>	
+</div>
+<div class="modal-footer 0BodyPadding">
+  <button ng-click="save()" class="btn popUpButton saveButton" >Add User</button>
+  <button ng-click="cancel()" class="btn popUpButton cancelButton" >Cancel</button>
+</div>
