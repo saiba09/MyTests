@@ -1,0 +1,23 @@
+<div class="tabContainer">
+	<button class="btn topicButton" ng-click="addTopic('sm')">Add Topic</button>
+	<table class="table table-fixed">
+		<thead class="tableHeading">
+		  <tr>
+			<th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">Topic</th>
+			<th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">Sub-Topic</th>
+			<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Total Questions</th>
+			<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Action</th>
+			<th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Manage Geo</th>
+		  </tr>
+		</thead>
+		<tbody class="subscriberTable">
+			<tr>
+				<td class="col-xs-3 col-sm-3 col-md-3 col-lg-3 textBreak">John</td>
+				<td class="col-xs-3 col-sm-3 col-md-3 col-lg-3 textBreak">Doe</td>
+				<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">10</td>
+				<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2 hyperlink" ng-click="manageQuestions('lg')">Manage Questions</td>
+				<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2 hyperlink" ng-click="manageGeo()">Manage Geo</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

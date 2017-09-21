@@ -40,7 +40,7 @@ public class readFromExcel {
 	}
 
 	protected void finalize() throws Throwable {
-		connection.close();
+		//connection.close();
 	};
 
 	static void toDb() {
@@ -87,7 +87,7 @@ public class readFromExcel {
 		log.info("country : " + country + "  id : " + countryId);
 		if (countryId == -1) {
 			log.info("add new country");
-			try (PreparedStatement stmt = connection.prepareStatement("INSERT INTO Country(country_name) values ?")) {
+			try (PreparedStatement stmt = connection.prepareStatement("INSERT INTO Country(country_name) values(?)")) {
 				stmt.setString(1, country);
 				stmt.executeUpdate();
 				stmt.close();

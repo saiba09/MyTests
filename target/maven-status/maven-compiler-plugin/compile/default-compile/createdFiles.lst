@@ -1,0 +1,5 @@
+com/ey/db/LawDescription.class
+com/ey/db/readFromExcel.class
+com/ey/db/SetupApiAi.class
+com/ey/db/testing.class
+com/ey/db/ConnectionService.class
