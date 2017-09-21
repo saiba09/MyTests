@@ -226,7 +226,7 @@ public class readFromExcel {
 			String escapeSequence = "\\\\";
 		//	String path = readFromExcel.class.getResource("/formatedSampleData.xlsx").getPath();
 			// System.out.println(path);
-			String path = readFromExcel.class.getResource("/sample_data.xlsx").getPath();
+			String path = readFromExcel.class.getResource("/Countries_State.xlsx").getPath();
 		
 	FileInputStream excelFile = new FileInputStream(new File(path));
 			Workbook workbook = new XSSFWorkbook(excelFile);
