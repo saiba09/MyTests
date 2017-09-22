@@ -66,7 +66,7 @@ public class SetupApiAi {
 		post.setHeader("User-Agent", USER_AGENT);
 		post.setHeader("Content-Type", "application/json");
 		post.setHeader("Authorization",
-				"Bearer 36f114a183b241ad8fda33e11c962a5f");
+				"Bearer 4d8addaa7dce4bf9a07af12182ab6922");
 
 		StringEntity entity;
 		String result = " ";
