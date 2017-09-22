@@ -36,7 +36,8 @@ public class testing extends HttpServlet {
 		// TODO Auto-generated method stub
 //readFromExcel.toDb();
  String s= SetupApiAi.addQueryIntent();
-
+log.info("addIntent");
+SetupApiAi.addIntent();
 resp.getWriter().write("done : "+s);
 	}
  /*
