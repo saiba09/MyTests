@@ -78,6 +78,7 @@ public class SetupApiAi {
 			BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
 			result = response.toString();
 			log.info(response.getEntity().toString());
+log.info("res " + response.getStatusLine());
 			StringBuffer stringBuffer = new StringBuffer();
 			String line = "";
 			while ((line = rd.readLine()) != null) {
