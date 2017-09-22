@@ -1,4 +1,4 @@
-
+{
             "templates": [
                 "no",
                 "don't do it",
@@ -119,3 +119,4 @@
             "fallbackIntent": false,
             "events": []
         }
+        
