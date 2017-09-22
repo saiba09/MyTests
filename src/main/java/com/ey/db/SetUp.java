@@ -20,6 +20,7 @@ import org.json.simple.parser.ParseException;
 
 public class SetUp {
 	static String USER_AGENT = "Mozilla/5.0";
+	private static final Logger log = Logger.getLogger(SetUp.class.getName());
 
 	public static void main(String[] a) {
 
@@ -123,10 +124,10 @@ public class SetUp {
 		int responseCode = con.getResponseCode();
 		String responseMessage = con.getResponseMessage();
 		
-		System.out.println("\nSending 'POST' request to URL : " + url);
-		System.out.println("Response Code : " + responseCode);
-		System.out.println("responseMessage : " + responseMessage);
-		System.out.println("con : "+ con.toString());
+		log.info("\nSending 'POST' request to URL : " + url);
+		log.info("Response Code : " + responseCode);
+		log.info("responseMessage : " + responseMessage);
+		log.info("con : "+ con.toString());
 		BufferedReader in = new BufferedReader(
 		        new InputStreamReader(con.getInputStream()));
 		String inputLine;
@@ -138,7 +139,7 @@ public class SetUp {
 		in.close();
 
 		//print result
-		System.out.println(response.toString());
+		log.info(response.toString());
 
 	}
 
