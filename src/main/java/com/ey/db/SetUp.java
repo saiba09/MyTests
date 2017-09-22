@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Logger;
 
@@ -103,7 +104,7 @@ public class SetUp {
 		return result;*/
 	}
 
-	private static String sendPost() throws Exception {
+	public  static String sendPost() throws Exception {
 
 		String url = "https://api.api.ai/v1/intents?v=20150910";
 		URL obj = new URL(url);
