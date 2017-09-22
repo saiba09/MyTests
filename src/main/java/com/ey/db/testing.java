@@ -22,6 +22,9 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  * Servlet implementation class testing
@@ -35,10 +38,18 @@ public class testing extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //readFromExcel.toDb();
- String s= SetupApiAi.addQueryIntent();
-log.info("addIntent");
-SetupApiAi.addIntent();
-resp.getWriter().write("done : "+s);
+ String resultJson= SetupApiAi.addQueryIntent();
+ String response = "";
+ JSONParser parser = new JSONParser();
+	Object obj;
+		try {
+			obj = parser.parse(resultJson);
+			JSONObject responseObject = (JSONObject) obj;
+			 response = responseObject.get("status").toString();
+		} catch (ParseException e) {
+			log.info("Exception : " + e);
+		}
+resp.getWriter().write(response);
 	}
  /*
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

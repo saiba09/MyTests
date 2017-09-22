@@ -32,13 +32,13 @@ public class SetupApiAi {
 	static String contentType = "application/json";
 	static String auth = "Bearer 4d8addaa7dce4bf9a07af12182ab6922";
 
-	private static String getJsonStringForQueryIntent() {
+	private static String getJsonStringForIntent(String name) {
 		String inputJson = "";
-		String path = SetupApiAi.class.getResource("/QueryIntent.json").getPath();
+		String path = SetupApiAi.class.getResource(name).getPath();
 		System.out.println("Path exists : " + path);
 		JSONParser parser = new JSONParser();
 		Object obj;
-		if (!inputJson.equals("")) {
+		
 			try {
 				obj = parser.parse(new FileReader(path));
 				JSONObject jsonObject = (JSONObject) obj;
@@ -46,83 +46,53 @@ public class SetupApiAi {
 			} catch (IOException | ParseException e) {
 				log.info("Exception : " + e);
 			}
-		}
+		
 
 		return inputJson;
 	}
 
 	public static String addQueryIntent() {
-		String url = "https://api.api.ai/v1/intents?v=20150910";
-
-		HttpClient client = HttpClientBuilder.create().build();
-		HttpPost post = new HttpPost(url);
-
-		// add header
-		post.setHeader("User-Agent", USER_AGENT);
-		post.setHeader("Content-Type", "application/json");
-		post.setHeader("Authorization","Bearer 4d8addaa7dce4bf9a07af12182ab6922");
-
-		StringEntity entity;
-		String result = " ";
-		try {
-			entity = new StringEntity(getJsonStringForQueryIntent());
-			post.setEntity(entity);
-
-			HttpResponse response = client.execute(post);
-			// log.severe("Response Code : " +
-			// response.getStatusLine().getStatusCode());
-			log.info("Response Code : "
-					+ response.getStatusLine().getStatusCode());
-			BufferedReader rd = new BufferedReader(new InputStreamReader(
-					response.getEntity().getContent()));
-			result = response.getStatusLine().toString();
-			StringBuffer stringBuffer = new StringBuffer();
-			String line = "";
-			while ((line = rd.readLine()) != null) {
-				stringBuffer.append(line);
+		String response = "";
+		String queryIntentResponse = addIntent("/QueryIntent.json");
+		String parentId = "";
+		JSONParser parser = new JSONParser();
+		Object obj;
+			try {
+				obj = parser.parse(queryIntentResponse);
+				JSONObject responseObject = (JSONObject) obj;
+				parentId = responseObject.get("id").toString();
+			} catch (ParseException e) {
+				log.info("Exception : " + e);
 			}
-			 log.severe("stringBuffer " + stringBuffer); // Gives result Json
-			log.info("result " + result);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			log.severe("exception :  " +e);
-			e.printStackTrace();
+		if (parentId != "") {
+			response = addIntent("/QueryYesIntent.json");
 		}
-		return result;
+		return response;
 	}
 
-	public static String addIntent() {
+	public static String addIntent(String intent) {
 
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpPost post = new HttpPost(url);
-
+		StringBuffer responseBuffer = new StringBuffer();
 		// add header
 		post.setHeader("User-Agent", USER_AGENT);
 		post.setHeader("Content-Type", contentType);
-		post.setHeader("Authorization", auth);
-
+		post.setHeader("Authorization",auth);
 		StringEntity entity;
-		String result = " ";
 		try {
-			entity = new StringEntity(getJsonStringForQueryIntent());
+			entity = new StringEntity(getJsonStringForIntent(intent));
 			post.setEntity(entity);
 			HttpResponse response = client.execute(post);
-			log.info(response.toString());
-			// log.severe("Response Code : " +
-			// response.getStatusLine().getStatusCode());
-			log.info("Response Code : " + response.getStatusLine().getStatusCode());
-			BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-			result = response.toString();
-			StringBuffer stringBuffer = new StringBuffer();
+			BufferedReader rd = new BufferedReader(new InputStreamReader(
+					response.getEntity().getContent()));
 			String line = "";
 			while ((line = rd.readLine()) != null) {
-				stringBuffer.append(line);
+				responseBuffer.append(line);
 			}
-			log.info("result " + result);
 		} catch (IOException e) {
-			log.severe("exception :" + e);
-			e.printStackTrace();
+			log.info("Exception : " + e);
 		}
-		return result;
+		return responseBuffer.toString();
 	}
 }
