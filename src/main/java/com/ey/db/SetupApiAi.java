@@ -52,41 +52,40 @@ public class SetupApiAi {
 	}
 
 	public static String addQueryIntent() {
+		String url = "https://api.api.ai/v1/intents?v=20150910";
 
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpPost post = new HttpPost(url);
 
 		// add header
 		post.setHeader("User-Agent", USER_AGENT);
-		post.setHeader("Content-Type", contentType);
-		post.setHeader("Authorization", auth);
+		post.setHeader("Content-Type", "application/json");
+		post.setHeader("Authorization",
+				"Bearer 4d8addaa7dce4bf9a07af12182ab6922");
 
 		StringEntity entity;
 		String result = " ";
 		try {
 			entity = new StringEntity(getJsonStringForQueryIntent());
 			post.setEntity(entity);
+
 			HttpResponse response = client.execute(post);
-			Header[] header = response.getAllHeaders();
-			for (Header header2 : header) {
-				log.info("header : " + header2);
-			}
-			log.info(response.toString());
 			// log.severe("Response Code : " +
 			// response.getStatusLine().getStatusCode());
-			log.info("Response Code : " + response.getStatusLine().getStatusCode());
-			BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-			result = response.toString();
-			log.info(response.getEntity().toString());
-log.info("res " + response.getStatusLine());
+			log.info("Response Code : "
+					+ response.getStatusLine().getStatusCode());
+			BufferedReader rd = new BufferedReader(new InputStreamReader(
+					response.getEntity().getContent()));
+			result = response.getEntity().toString();
 			StringBuffer stringBuffer = new StringBuffer();
 			String line = "";
 			while ((line = rd.readLine()) != null) {
 				stringBuffer.append(line);
 			}
+			// log.severe("result " + result); // Gives result Json
 			log.info("result " + result);
 		} catch (IOException e) {
-			log.severe("exception :" + e);
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
