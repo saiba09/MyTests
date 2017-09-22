@@ -52,7 +52,12 @@ public class SetUp {
 	}
 
 	public static void addQueryIntent() {
-		sendPost();
+		try {
+			sendPost();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		/*
 		String url = "https://api.api.ai/v1/intents?v=20150910";
