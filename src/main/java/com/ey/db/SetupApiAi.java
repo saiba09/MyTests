@@ -21,6 +21,8 @@ import com.google.api.client.googleapis.auth.clientlogin.ClientLogin.Response;
 
 /**
  * Servlet implementation class SetupApiAi
+ * 
+ * Developer access Akshay : ff28c61a38424a3684af062f491003ca 
  */
 
 public class SetupApiAi {
@@ -75,6 +77,7 @@ public class SetupApiAi {
 			log.info("Response Code : " + response.getStatusLine().getStatusCode());
 			BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
 			result = response.toString();
+			log.info(response.getEntity().toString());
 			StringBuffer stringBuffer = new StringBuffer();
 			String line = "";
 			while ((line = rd.readLine()) != null) {
