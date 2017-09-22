@@ -1,13 +1,11 @@
 package com.ey.db;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Logger;
 
-import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -17,12 +15,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.google.api.client.googleapis.auth.clientlogin.ClientLogin.Response;
 
 /**
  * Servlet implementation class SetupApiAi
  * 
- * Developer access Akshay : ff28c61a38424a3684af062f491003ca 
+ * Developer access eyChatbot : ff28c61a38424a3684af062f491003ca 
  */
 
 public class SetupApiAi {
@@ -32,8 +29,8 @@ public class SetupApiAi {
 	static String contentType = "application/json";
 	static String auth = "Bearer 4d8addaa7dce4bf9a07af12182ab6922";
 
-	private static String getJsonStringForIntent(String name) {
-		String inputJson = "";
+	private static JSONObject getJsonStringForIntent(String name) {
+		JSONObject jsonObject = null;
 		String path = SetupApiAi.class.getResource(name).getPath();
 		System.out.println("Path exists : " + path);
 		JSONParser parser = new JSONParser();
@@ -41,19 +38,18 @@ public class SetupApiAi {
 		
 			try {
 				obj = parser.parse(new FileReader(path));
-				JSONObject jsonObject = (JSONObject) obj;
-				inputJson = jsonObject.toJSONString();
+				 jsonObject = (JSONObject) obj;
 			} catch (IOException | ParseException e) {
 				log.info("Exception : " + e);
 			}
 		
 
-		return inputJson;
+		return jsonObject;
 	}
 
 	public static String addQueryIntent() {
 		String response = "";
-		String queryIntentResponse = addIntent("/QueryIntent.json");
+		String queryIntentResponse = addIntent("/QueryIntent.json" , null);
 		String parentId = "";
 		JSONParser parser = new JSONParser();
 		Object obj;
@@ -65,12 +61,13 @@ public class SetupApiAi {
 				log.info("Exception : " + e);
 			}
 		if (parentId != "") {
-			response = addIntent("/QueryYesIntent.json");
+			response = addIntent("/QueryYesIntent.json" , parentId);
 		}
 		return response;
 	}
 
-	public static String addIntent(String intent) {
+	@SuppressWarnings("unchecked")
+	public static String addIntent(String intent, String parentId) {
 
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpPost post = new HttpPost(url);
@@ -80,19 +77,27 @@ public class SetupApiAi {
 		post.setHeader("Content-Type", contentType);
 		post.setHeader("Authorization",auth);
 		StringEntity entity;
-		try {
-			entity = new StringEntity(getJsonStringForIntent(intent));
-			post.setEntity(entity);
-			HttpResponse response = client.execute(post);
-			BufferedReader rd = new BufferedReader(new InputStreamReader(
-					response.getEntity().getContent()));
-			String line = "";
-			while ((line = rd.readLine()) != null) {
-				responseBuffer.append(line);
+		JSONObject intentObject = getJsonStringForIntent(intent);
+		if (intentObject != null) {
+			if (parentId != null) {
+				intentObject.put("parentId", parentId);
 			}
-		} catch (IOException e) {
-			log.info("Exception : " + e);
+			try {
+				entity = new StringEntity(intentObject.toJSONString());
+
+				post.setEntity(entity);
+				HttpResponse response = client.execute(post);
+				BufferedReader rd = new BufferedReader(new InputStreamReader(
+						response.getEntity().getContent()));
+				String line = "";
+				while ((line = rd.readLine()) != null) {
+					responseBuffer.append(line);
+				}
+			} catch (IOException e) {
+				log.info("Exception : " + e);
+			}
 		}
+
 		return responseBuffer.toString();
 	}
 }

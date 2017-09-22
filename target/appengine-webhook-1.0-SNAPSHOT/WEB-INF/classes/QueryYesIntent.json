@@ -136,8 +136,6 @@
                 }
             ],
             "id": "78eed763-92f1-40d3-9187-120f5f8ff8d3",
-            "parentId": "00a55708-1273-48ae-84f9-6e2e5455f729",
-            "rootParentId": "00a55708-1273-48ae-84f9-6e2e5455f729",
             "name": "Query - yes",
             "auto": true,
             "contexts": [
