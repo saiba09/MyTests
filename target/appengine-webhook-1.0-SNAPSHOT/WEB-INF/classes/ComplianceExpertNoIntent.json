@@ -93,7 +93,7 @@
                     "count": 0
                 }
             ],
-            "name": "compliance_expert - no",
+            "name": "compliance_expert_no",
             "auto": true,
             "contexts": [
                 "compliance_expert-followup"

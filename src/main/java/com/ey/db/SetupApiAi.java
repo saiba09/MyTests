@@ -39,7 +39,7 @@ public class SetupApiAi {
 			try {
 				obj = parser.parse(new FileReader(path));
 				 jsonObject = (JSONObject) obj;
-				 log.info("jjson obj created " + jsonObject );
+				 log.info("json obj created " + jsonObject );
 			} catch (IOException | ParseException e) {
 				log.info("Exception : " + e);
 			}
@@ -164,7 +164,7 @@ public class SetupApiAi {
 				log.info("posting to API AI");
 				post.setEntity(entity);
 				HttpResponse response = client.execute(post);
-				log.info("gor response : "+ response);
+				log.info("got response : "+ response);
 				BufferedReader rd = new BufferedReader(new InputStreamReader(
 						response.getEntity().getContent()));
 				String line = "";

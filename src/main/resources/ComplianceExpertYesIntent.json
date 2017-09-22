@@ -138,7 +138,7 @@
             "id": "c6cf36a7-1b64-46ad-ab89-ba3326816f10",
             "parentId": "4aa51ec4-2a58-406f-a274-8c9d5c24c218",
             "rootParentId": "4aa51ec4-2a58-406f-a274-8c9d5c24c218",
-            "name": "compliance_expert - yes",
+            "name": "compliance_expert_yes",
             "auto": true,
             "contexts": [
                 "compliance_expert-followup"

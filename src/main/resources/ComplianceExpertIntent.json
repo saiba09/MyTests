@@ -12,106 +12,87 @@
     ],
     "userSays": [
         {
-            "id": "981a1a19-52e9-4296-9b31-5b2020e32342",
             "data": [
                 {
                     "text": "I don't want that"
                 }
             ],
             "isTemplate": false,
-            "count": 0,
-            "updated": 1499163651
+            "count": 0
         },
         {
-            "id": "6ff56295-af4b-436a-a2d9-2fc31a694daf",
             "data": [
                 {
                     "text": "I disagree"
                 }
             ],
             "isTemplate": false,
-            "count": 0,
-            "updated": 1499163651
+            "count": 0
         },
         {
-            "id": "a5f0b9dc-2c12-46b5-b609-6c44ebc48be4",
             "data": [
                 {
                     "text": "I don't think so"
                 }
             ],
             "isTemplate": false,
-            "count": 0,
-            "updated": 1499163651
+            "count": 0
         },
         {
-            "id": "8b8badbb-3f29-46b1-87ac-9d87555c29ff",
             "data": [
                 {
                     "text": "Not interested"
                 }
             ],
             "isTemplate": false,
-            "count": 0,
-            "updated": 1499163473
+            "count": 0
         },
         {
-            "id": "95d5fb15-5950-4670-b10c-33c5dca72c6a",
             "data": [
                 {
                     "text": "thanks but no"
                 }
             ],
             "isTemplate": false,
-            "count": 0,
-            "updated": 1499163651
+            "count": 0
         },
         {
-            "id": "b3135ac9-335c-4c77-a762-2e867d20d826",
             "data": [
                 {
                     "text": "not really"
                 }
             ],
             "isTemplate": false,
-            "count": 0,
-            "updated": 1499163651
+            "count": 0
         },
         {
-            "id": "bb2b2092-05ea-4c9c-a29d-bdba7ff36def",
             "data": [
                 {
                     "text": "don't do it"
                 }
             ],
             "isTemplate": false,
-            "count": 1,
-            "updated": 1499163651
+            "count": 1
         },
         {
-            "id": "bf4c1239-3eb1-4763-a804-3650ca714ef8",
             "data": [
                 {
                     "text": "Nope"
                 }
             ],
             "isTemplate": false,
-            "count": 0,
-            "updated": 0
+            "count": 0
         },
         {
-            "id": "6f8dd36c-ddc8-4b81-94c1-be6b21841691",
             "data": [
                 {
                     "text": "no"
                 }
             ],
             "isTemplate": false,
-            "count": 1,
-            "updated": 0
+            "count": 1
         }
     ],
-    "id": "4aa51ec4-2a58-406f-a274-8c9d5c24c218",
     "name": "compliance_expert",
     "auto": true,
     "contexts": [
