@@ -5,17 +5,11 @@ import java.io.DataOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.logging.Logger;
 
-import javax.net.ssl.HttpsURLConnection;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -108,10 +102,9 @@ public class SetUp {
 
 		String url = "https://api.api.ai/v1/intents?v=20150910";
 		URL obj = new URL(url);
-		HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+		URLConnection con = obj.openConnection();
 
 		//add reuqest header
-		con.setRequestMethod("POST");
 		con.setRequestProperty("User-Agent", USER_AGENT);
 		con.setRequestProperty("Content-Type", "application/json");
 		con.setRequestProperty("Authorization",
@@ -124,7 +117,7 @@ public class SetUp {
 		wr.flush();
 		wr.close();
 
-		int responseCode = con.getResponseCode();
+		int responseCode = ((Object) con).getResponseCode();
 		String responseMessage = con.getResponseMessage();
 		
 		log.info("\nSending 'POST' request to URL : " + url);
