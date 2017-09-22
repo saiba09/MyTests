@@ -39,6 +39,7 @@ public class SetupApiAi {
 			try {
 				obj = parser.parse(new FileReader(path));
 				 jsonObject = (JSONObject) obj;
+				 log.info("jjson obj created " + jsonObject );
 			} catch (IOException | ParseException e) {
 				log.info("Exception : " + e);
 			}
@@ -48,11 +49,17 @@ public class SetupApiAi {
 	}
 
 	public static String addQueryIntent() throws UnableToCreateIntent {
+		log.info("In addQueryIntent");
 		String response = "";
 		String queryIntentResponse = addIntent("/QueryIntent.json" , null,null);
+		log.info("response by adding query intent : "+response);
 		String parentId = getId(queryIntentResponse);
+		log.info("Parent Id fetched : "+ parentId);
 		if (parentId != "") {
+			log.info("adding Query - yes follow up intent");
 			response = addIntent("/QueryYesIntent.json" , parentId , null);
+			log.info("response by adding query - yes follow up intent : "+response);
+
 		}
 		else{
 			throw new UnableToCreateIntent("Query Intent" ,queryIntentResponse );
@@ -60,25 +67,47 @@ public class SetupApiAi {
 		return response;
 	}
 	public static String addStateIntent() {
+		log.info("In addStateIntent ");
+
 		String response = "";
 		response = addIntent("/StateIntent.json" , null ,null);
+		log.info("response by adding state intent : "+response);
+
 		return response;
 	}
 	public static String addComplianceExpertIntent() throws UnableToCreateIntent {
+		log.info("In addComplianceExpertIntent ");
+		log.info("adding ComplianceExpert Intent");
 		String response  = addIntent("/ComplianceExpertIntent.json" , null,null);
+		log.info("response by adding ComplianceExpert Intent : "+response);
 		String rootParentId = getId(response);
+		log.info("rootParent Id fetched : "+ rootParentId);
 		if (rootParentId != "") {
+			log.info("adding ComplianceExpertNoIntent ");
 			response = addIntent("/ComplianceExpertNoIntent.json" , rootParentId , null);
+			log.info("response by adding ComplianceExpertNoIntent Intent : "+response);
+			log.info("adding ComplianceExpertNoIntent ");
 			response = addIntent("/ComplianceExpertYesIntent.json" , rootParentId , null);
+			log.info("response by adding ComplianceExpertYesIntent Intent : "+response);
 			String parentId = getId(response);
+			log.info("Parent Id fetched : "+ parentId);
 			if (parentId != null) {
+				log.info("adding ComplianceExpertYesYesIntent ");
 				response = addIntent("/ComplianceExpertYesYesIntent", parentId, rootParentId);
+				log.info("response by adding ComplianceExpertYesYesIntent  : "+response);
+				log.info("adding ComplianceExpertYesNoIntent ");
 				response = addIntent("/ComplianceExpertYesNoIntent", parentId, rootParentId);
+				log.info("response by adding ComplianceExpertYesNoIntent  : "+response);				
 				parentId = getId(response);
+				log.info("Parent Id fetched : "+ parentId);
 				if (parentId != null) {
+					log.info("adding ComplianceExpertYesNoNoIntent ");
 					response = addIntent("/ComplianceExpertYesNoNoIntent", parentId, rootParentId);
+					log.info("response by adding ComplianceExpertYesNoNoIntent  : "+response);
+					log.info("adding ComplianceExpertYesNoYesIntent ");
 					response = addIntent("/ComplianceExpertYesNoYesIntent", parentId, rootParentId);
-					parentId = getId(response);
+					log.info("response by adding ComplianceExpertYesNoYesIntent  : "+response);
+
 				}else{
 					throw new UnableToCreateIntent("ComplianceExpert-Yes-No Intent" ,response );
 				}
@@ -92,13 +121,16 @@ public class SetupApiAi {
 		return response;
 	}
 	private static String getId(String response){
+		log.info("In getId() " );
 		String id = null;
 		JSONParser parser = new JSONParser();
 		Object obj;
 			try {
+				log.info("parsing object");
 				obj = parser.parse(response);
 				JSONObject responseObject = (JSONObject) obj;
 				id = responseObject.get("id").toString();
+				log.info("id fetched : "+id);
 			} catch (ParseException e) {
 				log.severe("Exception : " + e);
 			}
@@ -106,7 +138,7 @@ public class SetupApiAi {
 	}
 	@SuppressWarnings("unchecked")
 	public static String addIntent(String intent, String parentId,String rootParentId ) {
-
+		log.info("add intent()");
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpPost post = new HttpPost(url);
 		StringBuffer responseBuffer = new StringBuffer();
@@ -115,26 +147,31 @@ public class SetupApiAi {
 		post.setHeader("Content-Type", contentType);
 		post.setHeader("Authorization",auth);
 		StringEntity entity;
+		log.info("getting json file for : "+ intent);
 		JSONObject intentObject = getJsonStringForIntent(intent);
 		if (intentObject != null) {
+			log.info("json fetched");
 			if (parentId != null) {
 				intentObject.put("parentId", parentId);
+				log.info("parent id added");
 			}
 			if (rootParentId != null) {
 				intentObject.put("rootParentId", rootParentId);
-
+				log.info("root parent id added");
 			}
 			try {
 				entity = new StringEntity(intentObject.toJSONString());
-
+				log.info("posting to API AI");
 				post.setEntity(entity);
 				HttpResponse response = client.execute(post);
+				log.info("gor response : "+ response);
 				BufferedReader rd = new BufferedReader(new InputStreamReader(
 						response.getEntity().getContent()));
 				String line = "";
 				while ((line = rd.readLine()) != null) {
 					responseBuffer.append(line);
 				}
+				log.info("parsed responsed");
 			} catch (IOException e) {
 				log.info("Exception : " + e);
 			}
