@@ -1,4 +1,4 @@
- {
+{
             "templates": [
                 "s",
                 "yes",
@@ -20,8 +20,7 @@
                         }
                     ],
                     "isTemplate": false,
-                    "count": 0,
-                    "updated": 1499674023
+                    "count": 0
                 },
                 {
                     "data": [
@@ -30,8 +29,7 @@
                         }
                     ],
                     "isTemplate": false,
-                    "count": 0,
-                    "updated": 0
+                    "count": 0
                 },
                 {
                     "data": [
@@ -40,8 +38,7 @@
                         }
                     ],
                     "isTemplate": false,
-                    "count": 1,
-                    "updated": 0
+                    "count": 1
                 },
                 {
                     "data": [
@@ -50,8 +47,7 @@
                         }
                     ],
                     "isTemplate": false,
-                    "count": 2,
-                    "updated": 0
+                    "count": 2
                 },
                 {
                     "data": [
@@ -60,8 +56,7 @@
                         }
                     ],
                     "isTemplate": false,
-                    "count": 0,
-                    "updated": 0
+                    "count": 0
                 },
                 {
                     "data": [
@@ -70,8 +65,7 @@
                         }
                     ],
                     "isTemplate": false,
-                    "count": 1,
-                    "updated": 0
+                    "count": 1
                 },
                 {
                     "data": [
@@ -80,8 +74,7 @@
                         }
                     ],
                     "isTemplate": false,
-                    "count": 0,
-                    "updated": 0
+                    "count": 0
                 },
                 {
                     "data": [
@@ -90,8 +83,7 @@
                         }
                     ],
                     "isTemplate": false,
-                    "count": 0,
-                    "updated": 0
+                    "count": 0
                 },
                 {
                     "data": [
@@ -100,8 +92,7 @@
                         }
                     ],
                     "isTemplate": false,
-                    "count": 0,
-                    "updated": 0
+                    "count": 0
                 },
                 {
                     "data": [
@@ -110,8 +101,7 @@
                         }
                     ],
                     "isTemplate": false,
-                    "count": 0,
-                    "updated": 0
+                    "count": 0
                 },
                 {
                     "data": [
@@ -120,25 +110,30 @@
                         }
                     ],
                     "isTemplate": false,
-                    "count": 1,
-                    "updated": 0
+                    "count": 1
                 }
             ],
-            "name": "Query - yes",
+            "name": "compliance_expert - yes - no - yes",
             "auto": true,
             "contexts": [
-                "Query-followup"
+                "compliance_expert-yes-no-followup"
             ],
             "responses": [
                 {
                     "resetContexts": false,
-                    "action": "Query.Query-yes",
+                    "action": "compliance_expert_yes.compliance_expert-yes-no.compliance_expert-yes-no-yes",
                     "affectedContexts": [],
-                    "parameters": [],
+                    "parameters": [
+                        {
+                            "dataType": "@topics",
+                            "name": "topic",
+                            "value": "#compliance_expert-yes-no-followup.topic"
+                        }
+                    ],
                     "messages": [
                         {
                             "type": 0,
-                            "speech": "Thank you. Do let us know if you have any other questions."
+                            "speech": "Click <a style='color:yellow' href='mailto:urgent_response@abc.com?subject=Need urgent help on $topic&body=Hello sir,' target=\"_top\">here</a> to Send a mail to write a query with urgent response time"
                         }
                     ],
                     "defaultResponsePlatforms": {}
@@ -147,7 +142,7 @@
             "priority": 500000,
             "webhookUsed": false,
             "webhookForSlotFilling": false,
-            "lastUpdate": 1499674023,
+            "lastUpdate": 1499759285,
             "fallbackIntent": false,
             "events": []
         }

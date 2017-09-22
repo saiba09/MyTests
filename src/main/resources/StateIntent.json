@@ -1,0 +1,87 @@
+{
+    "templates": [
+        "tell me about @us_states:state ",
+        "@us_states:state "
+    ],
+    "userSays": [
+        {
+            "data": [
+                {
+                    "text": "tell me about "
+                },
+                {
+                    "text": "New york",
+                    "alias": "state",
+                    "meta": "@us_states",
+                    "userDefined": true
+                }
+            ],
+            "isTemplate": false,
+            "count": 0
+        },
+        {
+            "data": [
+                {
+                    "text": "New york",
+                    "alias": "state",
+                    "meta": "@us_states",
+                    "userDefined": false
+                }
+            ],
+            "isTemplate": false,
+            "count": 0
+        }
+    ],
+    "name": "state_laws",
+    "auto": true,
+    "contexts": [
+        "state_law"
+    ],
+    "responses": [
+        {
+            "resetContexts": false,
+            "action": "state_laws",
+            "affectedContexts": [
+                {
+                    "name": "state_law",
+                    "parameters": {},
+                    "lifespan": 5
+                }
+            ],
+            "parameters": [
+                {
+                    "required": true,
+                    "dataType": "@us_states",
+                    "name": "state",
+                    "value": "$state",
+                    "prompts": [
+                        "Which state?"
+                    ],
+                    "isList": false
+                },
+                {
+                    "dataType": "@topics",
+                    "name": "topic",
+                    "value": "#state_law.topic"
+                }
+            ],
+            "messages": [
+                {
+                    "type": 0,
+                    "speech": "sorry"
+                }
+            ],
+            "defaultResponsePlatforms": {}
+        }
+    ],
+    "priority": 500000,
+    "cortanaCommand": {
+        "navigateOrService": "NAVIGATE",
+        "target": ""
+    },
+    "webhookUsed": true,
+    "webhookForSlotFilling": false,
+    "lastUpdate": 1503899725,
+    "fallbackIntent": false,
+    "events": []
+}

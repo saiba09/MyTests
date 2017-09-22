@@ -1,4 +1,4 @@
- {
+{
             "templates": [
                 "s",
                 "yes",
@@ -14,6 +14,7 @@
             ],
             "userSays": [
                 {
+                    "id": "169cec1a-200e-430f-9f00-1d3587e45088",
                     "data": [
                         {
                             "text": "s"
@@ -21,9 +22,10 @@
                     ],
                     "isTemplate": false,
                     "count": 0,
-                    "updated": 1499674023
+                    "updated": 1499674036
                 },
                 {
+                    "id": "1cc0a5b5-e47a-4878-9976-de3ffd28d778",
                     "data": [
                         {
                             "text": "yes"
@@ -34,6 +36,7 @@
                     "updated": 0
                 },
                 {
+                    "id": "97f99f27-1bd2-4f95-bc34-71414dd5826b",
                     "data": [
                         {
                             "text": "do it"
@@ -44,6 +47,7 @@
                     "updated": 0
                 },
                 {
+                    "id": "942ca518-c590-4ac8-9b80-90cd2bc46423",
                     "data": [
                         {
                             "text": "sure"
@@ -54,6 +58,7 @@
                     "updated": 0
                 },
                 {
+                    "id": "4bc65ccc-ae5b-461e-beb0-ce2ee60c81a5",
                     "data": [
                         {
                             "text": "exactly"
@@ -64,6 +69,7 @@
                     "updated": 0
                 },
                 {
+                    "id": "fc469439-b6e9-4c7b-87cd-a53d3c492f01",
                     "data": [
                         {
                             "text": "confirm"
@@ -74,6 +80,7 @@
                     "updated": 0
                 },
                 {
+                    "id": "3615624d-6b6c-4b73-aaf4-c8b9a95485c9",
                     "data": [
                         {
                             "text": "of course"
@@ -84,6 +91,7 @@
                     "updated": 0
                 },
                 {
+                    "id": "ff59a156-54ce-4fac-bfd8-4cd84dec7e8b",
                     "data": [
                         {
                             "text": "sounds good"
@@ -94,6 +102,7 @@
                     "updated": 0
                 },
                 {
+                    "id": "c35a2ea1-c4c3-4098-98b6-2d1352411ed8",
                     "data": [
                         {
                             "text": "that's correct"
@@ -104,6 +113,7 @@
                     "updated": 0
                 },
                 {
+                    "id": "7ee444c5-27ae-44a4-b073-7086d54e55bb",
                     "data": [
                         {
                             "text": "I don't mind"
@@ -114,6 +124,7 @@
                     "updated": 0
                 },
                 {
+                    "id": "505c4163-58c9-413a-9925-7223e290d754",
                     "data": [
                         {
                             "text": "I agree"
@@ -124,30 +135,45 @@
                     "updated": 0
                 }
             ],
-            "name": "Query - yes",
+            "id": "c6cf36a7-1b64-46ad-ab89-ba3326816f10",
+            "parentId": "4aa51ec4-2a58-406f-a274-8c9d5c24c218",
+            "rootParentId": "4aa51ec4-2a58-406f-a274-8c9d5c24c218",
+            "name": "compliance_expert - yes",
             "auto": true,
             "contexts": [
-                "Query-followup"
+                "compliance_expert-followup"
             ],
             "responses": [
                 {
                     "resetContexts": false,
-                    "action": "Query.Query-yes",
-                    "affectedContexts": [],
-                    "parameters": [],
+                    "action": "compliance_expert_yes",
+                    "affectedContexts": [
+                        {
+                            "name": "compliance_expert-yes-followup",
+                            "parameters": {},
+                            "lifespan": 1
+                        }
+                    ],
+                    "parameters": [
+                        {
+                            "dataType": "@topics",
+                            "name": "topic",
+                            "value": "#compliance_expert-followup.topic"
+                        }
+                    ],
                     "messages": [
                         {
                             "type": 0,
-                            "speech": "Thank you. Do let us know if you have any other questions."
+                            "speech": "Sorry. I cannot help with compliance expert"
                         }
                     ],
                     "defaultResponsePlatforms": {}
                 }
             ],
             "priority": 500000,
-            "webhookUsed": false,
+            "webhookUsed": true,
             "webhookForSlotFilling": false,
-            "lastUpdate": 1499674023,
+            "lastUpdate": 1499674036,
             "fallbackIntent": false,
             "events": []
         }

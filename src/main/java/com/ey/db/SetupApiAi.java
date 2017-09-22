@@ -47,27 +47,65 @@ public class SetupApiAi {
 		return jsonObject;
 	}
 
-	public static String addQueryIntent() {
+	public static String addQueryIntent() throws UnableToCreateIntent {
 		String response = "";
-		String queryIntentResponse = addIntent("/QueryIntent.json" , null);
-		String parentId = "";
-		JSONParser parser = new JSONParser();
-		Object obj;
-			try {
-				obj = parser.parse(queryIntentResponse);
-				JSONObject responseObject = (JSONObject) obj;
-				parentId = responseObject.get("id").toString();
-			} catch (ParseException e) {
-				log.info("Exception : " + e);
-			}
+		String queryIntentResponse = addIntent("/QueryIntent.json" , null,null);
+		String parentId = getId(queryIntentResponse);
 		if (parentId != "") {
-			response = addIntent("/QueryYesIntent.json" , parentId);
+			response = addIntent("/QueryYesIntent.json" , parentId , null);
+		}
+		else{
+			throw new UnableToCreateIntent("Query Intent" ,queryIntentResponse );
 		}
 		return response;
 	}
-
+	public static String addStateIntent() {
+		String response = "";
+		response = addIntent("/StateIntent.json" , null ,null);
+		return response;
+	}
+	public static String addComplianceExpertIntent() throws UnableToCreateIntent {
+		String response  = addIntent("/ComplianceExpertIntent.json" , null,null);
+		String rootParentId = getId(response);
+		if (rootParentId != "") {
+			response = addIntent("/ComplianceExpertNoIntent.json" , rootParentId , null);
+			response = addIntent("/ComplianceExpertYesIntent.json" , rootParentId , null);
+			String parentId = getId(response);
+			if (parentId != null) {
+				response = addIntent("/ComplianceExpertYesYesIntent", parentId, rootParentId);
+				response = addIntent("/ComplianceExpertYesNoIntent", parentId, rootParentId);
+				parentId = getId(response);
+				if (parentId != null) {
+					response = addIntent("/ComplianceExpertYesNoNoIntent", parentId, rootParentId);
+					response = addIntent("/ComplianceExpertYesNoYesIntent", parentId, rootParentId);
+					parentId = getId(response);
+				}else{
+					throw new UnableToCreateIntent("ComplianceExpert-Yes-No Intent" ,response );
+				}
+			}else{
+				throw new UnableToCreateIntent("ComplianceExpert-Yes Intent" ,response );
+			}
+		}
+		else{
+			throw new UnableToCreateIntent("ComplianceExpertIntent" ,response );
+		}
+		return response;
+	}
+	private static String getId(String response){
+		String id = null;
+		JSONParser parser = new JSONParser();
+		Object obj;
+			try {
+				obj = parser.parse(response);
+				JSONObject responseObject = (JSONObject) obj;
+				id = responseObject.get("id").toString();
+			} catch (ParseException e) {
+				log.severe("Exception : " + e);
+			}
+			return id;
+	}
 	@SuppressWarnings("unchecked")
-	public static String addIntent(String intent, String parentId) {
+	public static String addIntent(String intent, String parentId,String rootParentId ) {
 
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpPost post = new HttpPost(url);
@@ -81,6 +119,10 @@ public class SetupApiAi {
 		if (intentObject != null) {
 			if (parentId != null) {
 				intentObject.put("parentId", parentId);
+			}
+			if (rootParentId != null) {
+				intentObject.put("rootParentId", rootParentId);
+
 			}
 			try {
 				entity = new StringEntity(intentObject.toJSONString());

@@ -1,113 +1,18 @@
 {
-        "name": "compliance_expert - no",
-        "contextIn": [
-            "compliance_expert-followup"
-        ],
-        "actions": [
-            "compliance_expert.compliance_expert-no"
-        ],
-        "templates": [
-        "no",
-        "don't do it",
-        "definitely not",
-        "not really",
-        "thanks but no",
-        "not interested",
-        "I don't think so",
+    "templates": [
+        "I don't want that",
         "I disagree",
-        "I don't want that"
+        "I don't think so",
+        "Not interested",
+        "thanks but no",
+        "not really",
+        "don't do it",
+        "Nope",
+        "no"
     ],
     "userSays": [
         {
-            "id": "a01ffe5f-4a6e-4144-a8e4-f3bb0f0115fb",
-            "data": [
-                {
-                    "text": "no"
-                }
-            ],
-            "isTemplate": false,
-            "count": 0,
-            "updated": 0
-        },
-        {
-            "id": "f754930c-a1d0-4b64-ae4a-6efd989ffee6",
-            "data": [
-                {
-                    "text": "don't do it"
-                }
-            ],
-            "isTemplate": false,
-            "count": 0,
-            "updated": 0
-        },
-        {
-            "id": "c0328fcf-b9be-4b9b-a1ed-5b34cfc119be",
-            "data": [
-                {
-                    "text": "definitely not"
-                }
-            ],
-            "isTemplate": false,
-            "count": 0,
-            "updated": 0
-        },
-        {
-            "id": "25593e7e-9b8b-414d-8e80-92dd6619247f",
-            "data": [
-                {
-                    "text": "not really"
-                }
-            ],
-            "isTemplate": false,
-            "count": 0,
-            "updated": 0
-        },
-        {
-            "id": "535290b3-88f1-4a4b-9f23-3ca42ea0e040",
-            "data": [
-                {
-                    "text": "thanks but no"
-                }
-            ],
-            "isTemplate": false,
-            "count": 0,
-            "updated": 0
-        },
-        {
-            "id": "3a643634-9cbf-4ac8-b813-c555e04a8cbd",
-            "data": [
-                {
-                    "text": "not interested"
-                }
-            ],
-            "isTemplate": false,
-            "count": 0,
-            "updated": 0
-        },
-        {
-            "id": "f6b6920e-668b-4982-9651-1dd2b3213f88",
-            "data": [
-                {
-                    "text": "I don't think so"
-                }
-            ],
-            "isTemplate": false,
-            "count": 0,
-            "updated": 0
-        },
-        {
-            "id": "bece4ee1-da70-4ef2-a67f-6a853fa125e9",
-            "data": [
-                {
-                    "text": "I disagree"
-                }
-            ],
-            "isTemplate": false,
-            "count": 0,
-            "updated": 0
-        },
-        {
-            "id": "a48131d9-68d7-4328-bb5e-b612b249cc0d",
+            "id": "981a1a19-52e9-4296-9b31-5b2020e32342",
             "data": [
                 {
                     "text": "I don't want that"
@@ -115,28 +20,144 @@
             ],
             "isTemplate": false,
             "count": 0,
+            "updated": 1499163651
+        },
+        {
+            "id": "6ff56295-af4b-436a-a2d9-2fc31a694daf",
+            "data": [
+                {
+                    "text": "I disagree"
+                }
+            ],
+            "isTemplate": false,
+            "count": 0,
+            "updated": 1499163651
+        },
+        {
+            "id": "a5f0b9dc-2c12-46b5-b609-6c44ebc48be4",
+            "data": [
+                {
+                    "text": "I don't think so"
+                }
+            ],
+            "isTemplate": false,
+            "count": 0,
+            "updated": 1499163651
+        },
+        {
+            "id": "8b8badbb-3f29-46b1-87ac-9d87555c29ff",
+            "data": [
+                {
+                    "text": "Not interested"
+                }
+            ],
+            "isTemplate": false,
+            "count": 0,
+            "updated": 1499163473
+        },
+        {
+            "id": "95d5fb15-5950-4670-b10c-33c5dca72c6a",
+            "data": [
+                {
+                    "text": "thanks but no"
+                }
+            ],
+            "isTemplate": false,
+            "count": 0,
+            "updated": 1499163651
+        },
+        {
+            "id": "b3135ac9-335c-4c77-a762-2e867d20d826",
+            "data": [
+                {
+                    "text": "not really"
+                }
+            ],
+            "isTemplate": false,
+            "count": 0,
+            "updated": 1499163651
+        },
+        {
+            "id": "bb2b2092-05ea-4c9c-a29d-bdba7ff36def",
+            "data": [
+                {
+                    "text": "don't do it"
+                }
+            ],
+            "isTemplate": false,
+            "count": 1,
+            "updated": 1499163651
+        },
+        {
+            "id": "bf4c1239-3eb1-4763-a804-3650ca714ef8",
+            "data": [
+                {
+                    "text": "Nope"
+                }
+            ],
+            "isTemplate": false,
+            "count": 0,
+            "updated": 0
+        },
+        {
+            "id": "6f8dd36c-ddc8-4b81-94c1-be6b21841691",
+            "data": [
+                {
+                    "text": "no"
+                }
+            ],
+            "isTemplate": false,
+            "count": 1,
             "updated": 0
         }
     ],
+    "id": "4aa51ec4-2a58-406f-a274-8c9d5c24c218",
+    "name": "compliance_expert",
     "auto": true,
-  
+    "contexts": [
+        "complaince_expert"
+    ],
     "responses": [
         {
             "resetContexts": false,
-            "action": "compliance_expert.compliance_expert-no",
-            "affectedContexts": [],
-            "parameters": [],
+            "action": "compliance_expert",
+            "affectedContexts": [
+                {
+                    "name": "compliance_expert-followup",
+                    "parameters": {},
+                    "lifespan": 2
+                },
+                {
+                    "name": "Overtime-states-no-followup",
+                    "parameters": {},
+                    "lifespan": 5
+                }
+            ],
+            "parameters": [
+                {
+                    "dataType": "@topics",
+                    "name": "topic",
+                    "value": "#complaince_expert.topic"
+                }
+            ],
             "messages": [
                 {
                     "type": 0,
-                    "speech": "Thank you. Do let us know if you have any other questions."
+                    "speech": "Would like our compliance expert to help you? \\n :obYes:cb :obNo:cb"
                 }
-            ]
+            ],
+            "defaultResponsePlatforms": {}
         }
     ],
     "priority": 500000,
+    "cortanaCommand": {
+        "navigateOrService": "NAVIGATE",
+        "target": ""
+    },
     "webhookUsed": false,
     "webhookForSlotFilling": false,
-    "fallbackIntent": false
-        
-        }
+    "lastUpdate": 1499760981,
+    "fallbackIntent": false,
+    "events": []
+ 
+}

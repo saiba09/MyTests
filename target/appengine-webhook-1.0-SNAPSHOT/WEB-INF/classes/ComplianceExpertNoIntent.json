@@ -1,138 +1,107 @@
- {
+
             "templates": [
-                "s",
-                "yes",
-                "do it",
-                "sure",
-                "exactly",
-                "confirm",
-                "of course",
-                "sounds good",
-                "that's correct",
-                "I don't mind",
-                "I agree"
+                "no",
+                "don't do it",
+                "definitely not",
+                "not really",
+                "thanks but no",
+                "not interested",
+                "I don't think so",
+                "I disagree",
+                "I don't want that"
             ],
             "userSays": [
                 {
                     "data": [
                         {
-                            "text": "s"
+                            "text": "no"
                         }
                     ],
                     "isTemplate": false,
-                    "count": 0,
-                    "updated": 1499674023
+                    "count": 0
                 },
                 {
                     "data": [
                         {
-                            "text": "yes"
+                            "text": "don't do it"
                         }
                     ],
                     "isTemplate": false,
-                    "count": 0,
-                    "updated": 0
+                    "count": 0
                 },
                 {
                     "data": [
                         {
-                            "text": "do it"
+                            "text": "definitely not"
                         }
                     ],
                     "isTemplate": false,
-                    "count": 1,
-                    "updated": 0
+                    "count": 0
                 },
                 {
                     "data": [
                         {
-                            "text": "sure"
+                            "text": "not really"
                         }
                     ],
                     "isTemplate": false,
-                    "count": 2,
-                    "updated": 0
+                    "count": 0
                 },
                 {
                     "data": [
                         {
-                            "text": "exactly"
+                            "text": "thanks but no"
                         }
                     ],
                     "isTemplate": false,
-                    "count": 0,
-                    "updated": 0
+                    "count": 0
                 },
                 {
                     "data": [
                         {
-                            "text": "confirm"
+                            "text": "not interested"
                         }
                     ],
                     "isTemplate": false,
-                    "count": 1,
-                    "updated": 0
+                    "count": 0
                 },
                 {
                     "data": [
                         {
-                            "text": "of course"
+                            "text": "I don't think so"
                         }
                     ],
                     "isTemplate": false,
-                    "count": 0,
-                    "updated": 0
+                    "count": 0
                 },
                 {
                     "data": [
                         {
-                            "text": "sounds good"
+                            "text": "I disagree"
                         }
                     ],
                     "isTemplate": false,
-                    "count": 0,
-                    "updated": 0
+                    "count": 0
                 },
                 {
                     "data": [
                         {
-                            "text": "that's correct"
+                            "text": "I don't want that"
                         }
                     ],
                     "isTemplate": false,
-                    "count": 0,
-                    "updated": 0
-                },
-                {
-                    "data": [
-                        {
-                            "text": "I don't mind"
-                        }
-                    ],
-                    "isTemplate": false,
-                    "count": 0,
-                    "updated": 0
-                },
-                {
-                    "data": [
-                        {
-                            "text": "I agree"
-                        }
-                    ],
-                    "isTemplate": false,
-                    "count": 1,
-                    "updated": 0
+                    "count": 0
                 }
             ],
-            "name": "Query - yes",
+            "name": "compliance_expert - no",
             "auto": true,
             "contexts": [
-                "Query-followup"
+                "compliance_expert-followup"
             ],
             "responses": [
                 {
                     "resetContexts": false,
-                    "action": "Query.Query-yes",
+                    "action": "compliance_expert.compliance_expert-no",
                     "affectedContexts": [],
                     "parameters": [],
                     "messages": [
@@ -140,14 +109,13 @@
                             "type": 0,
                             "speech": "Thank you. Do let us know if you have any other questions."
                         }
-                    ],
-                    "defaultResponsePlatforms": {}
+                    ]
                 }
             ],
             "priority": 500000,
             "webhookUsed": false,
             "webhookForSlotFilling": false,
-            "lastUpdate": 1499674023,
+            "lastUpdate": 1499348898590,
             "fallbackIntent": false,
             "events": []
         }
