@@ -33,7 +33,7 @@ public class SetUp {
 		
 		
 		String inputJson = null;
-		String path = SetupApiAi.class.getResource("/QueryIntent.json")
+		String path = SetUp.class.getResource("/QueryIntent.json")
 				.getPath();
 		System.out.println("Path exists : " + path);
 		JSONParser parser = new JSONParser();
@@ -53,14 +53,15 @@ public class SetUp {
 		return inputJson;
 	}
 
-	public static void addQueryIntent() {
+	public static String addQueryIntent() {
+		String s = "noooo";
 		try {
-			sendPost();
+			s = sendPost();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		return s;
 		/*
 		String url = "https://api.api.ai/v1/intents?v=20150910";
 
@@ -102,7 +103,7 @@ public class SetUp {
 		return result;*/
 	}
 
-	private static void sendPost() throws Exception {
+	private static String sendPost() throws Exception {
 
 		String url = "https://api.api.ai/v1/intents?v=20150910";
 		URL obj = new URL(url);
@@ -141,7 +142,7 @@ public class SetUp {
 
 		//print result
 		log.info(response.toString());
-
+		return con.getContent().toString();
 	}
 
 }

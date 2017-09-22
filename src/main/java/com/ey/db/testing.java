@@ -35,8 +35,8 @@ public class testing extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //readFromExcel.toDb();
- SetUp.addQueryIntent();
-resp.getWriter().write("done : ");
+ String s = SetUp.addQueryIntent();
+resp.getWriter().write("done : "+s);
 	}
  /*
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
