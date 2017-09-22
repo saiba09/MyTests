@@ -60,8 +60,7 @@ public class SetupApiAi {
 		// add header
 		post.setHeader("User-Agent", USER_AGENT);
 		post.setHeader("Content-Type", "application/json");
-		post.setHeader("Authorization",
-				"Bearer 4d8addaa7dce4bf9a07af12182ab6922");
+		post.setHeader("Authorization","Bearer 4d8addaa7dce4bf9a07af12182ab6922");
 
 		StringEntity entity;
 		String result = " ";
@@ -76,16 +75,17 @@ public class SetupApiAi {
 					+ response.getStatusLine().getStatusCode());
 			BufferedReader rd = new BufferedReader(new InputStreamReader(
 					response.getEntity().getContent()));
-			result = response.getEntity().toString();
+			result = response.getStatusLine().toString();
 			StringBuffer stringBuffer = new StringBuffer();
 			String line = "";
 			while ((line = rd.readLine()) != null) {
 				stringBuffer.append(line);
 			}
-			// log.severe("result " + result); // Gives result Json
+			 log.severe("stringBuffer " + stringBuffer); // Gives result Json
 			log.info("result " + result);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			log.severe("exception :  " +e);
 			e.printStackTrace();
 		}
 		return result;
