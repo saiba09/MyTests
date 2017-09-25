@@ -14,6 +14,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.json.simple.JSONArray;
 
 
 /**
@@ -183,7 +184,8 @@ public class SetupApiAi {
 		// TODO Auto-generated method stub		
 			JSONObject entityObject = new JSONObject();
 			entityObject.put("name", entity);
-			entityObject.put("entries","[]");
+			JSONArray entries = new JSONArray();
+			entityObject.put("entries",entries);
 			
 		
 		return entityObject;
