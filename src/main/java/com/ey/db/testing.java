@@ -42,7 +42,6 @@ public class testing extends HttpServlet {
 
 		try {
 			resultJson = SetupApiAi.addComplianceExpertIntent();
-
 			JSONParser parser = new JSONParser();
 			Object obj;
 
@@ -51,6 +50,11 @@ public class testing extends HttpServlet {
 			response = responseObject.get("status").toString();
 		} catch (UnableToCreateIntent | ParseException e) {
 			log.info("Exception : " + e);
+		}
+		String entities[] = {"topics" , "us_states" ,"law_scope"};
+		for (String entity : entities) {
+			String res = SetupApiAi.addEntity(entity);
+			log.info("response adding entity : "+res);
 		}
 		resp.getWriter().write(response);
 	}

@@ -93,19 +93,19 @@ public class SetupApiAi {
 			log.info("Parent Id fetched : "+ parentId);
 			if (parentId != null) {
 				log.info("adding ComplianceExpertYesYesIntent ");
-				response = addIntent("/ComplianceExpertYesYesIntent", parentId, rootParentId);
+				response = addIntent("/ComplianceExpertYesYesIntent.json", parentId, rootParentId);
 				log.info("response by adding ComplianceExpertYesYesIntent  : "+response);
 				log.info("adding ComplianceExpertYesNoIntent ");
-				response = addIntent("/ComplianceExpertYesNoIntent", parentId, rootParentId);
+				response = addIntent("/ComplianceExpertYesNoIntent.json", parentId, rootParentId);
 				log.info("response by adding ComplianceExpertYesNoIntent  : "+response);				
 				parentId = getId(response);
 				log.info("Parent Id fetched : "+ parentId);
 				if (parentId != null) {
 					log.info("adding ComplianceExpertYesNoNoIntent ");
-					response = addIntent("/ComplianceExpertYesNoNoIntent", parentId, rootParentId);
+					response = addIntent("/ComplianceExpertYesNoNoIntent.json", parentId, rootParentId);
 					log.info("response by adding ComplianceExpertYesNoNoIntent  : "+response);
 					log.info("adding ComplianceExpertYesNoYesIntent ");
-					response = addIntent("/ComplianceExpertYesNoYesIntent", parentId, rootParentId);
+					response = addIntent("/ComplianceExpertYesNoYesIntent.json", parentId, rootParentId);
 					log.info("response by adding ComplianceExpertYesNoYesIntent  : "+response);
 
 				}else{
@@ -178,5 +178,52 @@ public class SetupApiAi {
 		}
 
 		return responseBuffer.toString();
+	}
+	private static JSONObject getJsonForEntity(String entity) {
+		// TODO Auto-generated method stub		
+			JSONObject entityObject = new JSONObject();
+			entityObject.put("name", entity);
+			entityObject.put("entries","[]");
+			
+		
+		return entityObject;
+	}
+	public static String addEntity(String entity){
+		log.info("add intent()");
+		String addEntityUrl = "https://api.api.ai/v1/entities?v=20150910";
+		HttpClient client = HttpClientBuilder.create().build();
+		HttpPost post = new HttpPost(addEntityUrl);
+		StringBuffer responseBuffer = new StringBuffer();
+		// add header
+		post.setHeader("User-Agent", USER_AGENT);
+		post.setHeader("Content-Type", contentType);
+		post.setHeader("Authorization",auth);
+		StringEntity stringEntity;
+		log.info("getting json file for : "+ entity);
+		JSONObject entityObject = getJsonForEntity(entity);
+		if (entityObject != null) {
+			log.info("json fetched");
+			
+			try {
+				stringEntity = new StringEntity(entityObject.toJSONString());
+				log.info("posting to API AI");
+				post.setEntity(stringEntity);
+				HttpResponse response = client.execute(post);
+				log.info("got response : "+ response);
+				BufferedReader rd = new BufferedReader(new InputStreamReader(
+						response.getEntity().getContent()));
+				String line = "";
+				while ((line = rd.readLine()) != null) {
+					responseBuffer.append(line);
+				}
+				log.info("parsed responsed");
+			} catch (IOException e) {
+				log.info("Exception : " + e);
+			}
+			
+			
+		}
+		return responseBuffer.toString();
+
 	}
 }
