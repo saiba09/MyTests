@@ -201,6 +201,7 @@ public class SetupApiAi {
 		StringEntity stringEntity;
 		log.info("getting json file for : "+ entity);
 		JSONObject entityObject = getJsonForEntity(entity);
+		log.info("json : "+entityObject.toJSONString());
 		if (entityObject != null) {
 			log.info("json fetched");
 			
